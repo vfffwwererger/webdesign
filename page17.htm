@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>css pseudo-classes</title>
+		<style>
+			.menu-h{position: sticky;top: 0;background-color: white;}
+			.menu-h li{display: inline-block;}
+			.menu-h li:hover{color: white;background-color: black;}
+			.menu{list-style-type: none;text-align: center;}
+			.menu li{border: 1px solid #ccc;margin-bottom: 4px;max-width: 100px;padding:0.5rem 1rem;}
+			.menu.menu2 li{margin-bottom: 0;}
+			.menu.menu2 li:last-child{ border-bottom:0;background:black; color: white;}
+			.menu.menu2 li:hover{background-color: lightblue;}
+		</style>
+
+	</head>
+	<body>
+		<h2>css pseudo-classes</h2>
+
+		<ul class="menu menu-h">
+			<li>coffee</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>juice</li>
+			<li>water</li>
+			<li>coffee</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>juice</li>
+			<li>water</li>
+		</ul>
+
+		<ul class="menu menu2">
+			<li>coffee</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>juice</li>
+			<li>water</li>
+			<li>coffee</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>juice</li>
+			<li>water</li>
+		</ul>		
+
+		<p><a href="index.htm">回首頁</a></p>	
+	</body>
+</html>
