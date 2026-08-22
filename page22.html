@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap ai studio sample</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <style>
+     /* 1. 設定輪播圖圖片的高度與顯示方式 */
+.carousel-item img {
+    height: 70vh; /* 使用螢幕高度的 70%，讓 Banner 更有氣勢 */
+    object-fit: cover; /* 確保圖片不變形 */
+}
+
+/* 2. 製作黑色半透明遮罩層 */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 0.4 代表 40% 的黑色透明度 */
+    z-index: 1; /* 確保遮罩在圖片上方 */
+}
+
+/* 3. 確保文字在遮罩層之上 */
+.carousel-caption {
+    z-index: 2;
+    bottom: 20%; /* 讓文字往上移動一點點，視覺更平衡 */
+}
+
+/* 4. 卡片滑入效果 */
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* 向上浮動 10 像素 */
+    shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; /* 加強陰影 */
+}
+
+/* 5. 優化圖片圓角 */
+.card-img-top {
+    border-top-left-radius: calc(0.5rem - 1px);
+    border-top-right-radius: calc(0.5rem - 1px);
+}
+    </style>
+  </head>
+<body>
+  
+
+        <!-- 1. 導覽列 Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <!-- 使用線上 Logo 圖示 -->
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=50&h=50&fit=crop" alt="Logo" width="30" height="30" class="d-inline-block align-text-top rounded-circle">
+                TECH-DESIGN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">首頁</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button" data-bs-toggle="dropdown">服務項目</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">網頁設計</a></li>
+                            <li><a class="dropdown-item" href="#">品牌顧問</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">聯絡我們</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">精選案例</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. 大 Banner 輪播圖 (加入遮罩層效果) -->
+    <header id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- 投影片 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-overlay"></div> <!-- 黑色遮罩層 -->
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&fit=crop" class="d-block w-100" alt="辦公室場景">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold">創新設計思維</h2>
+                    <p class="lead">我們用最尖端的技術，為您的品牌打造專屬的數位體驗。</p>
+                </div>
+            </div>
+            <!-- 投影片 2 -->
+            <div class="carousel-item">
+                <div class="carousel-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=700&fit=crop" class="d-block w-100" alt="科技場景">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold">數據驅動成長</h2>
+                    <p class="lead">透過精確的數據分析，掌握市場脈動與客戶需求。</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header>
+
+    <!-- 3. 三個一排的卡片 -->
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold">我們的核心服務</h3>
+            <p class="text-muted">提供最符合現代標準的解決方案</p>
+        </div>
+        <div class="row">
+            <!-- 卡片 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" class="card-img-top" alt="分析">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">市場分析</h5>
+                        <p class="card-text text-muted">深入了解競爭環境，找出您的品牌定位與優勢。</p>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">閱讀更多</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" class="card-img-top" alt="介面設計">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">UI/UX 設計</h5>
+                        <p class="card-text text-muted">以使用者為中心，創造直覺且美觀的操作介面。</p>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">閱讀更多</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 卡片 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" class="card-img-top" alt="開發">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">全端開發</h5>
+                        <p class="card-text text-muted">強大的後端系統與流暢的前端體驗完美結合。</p>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">閱讀更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+    <script>
+      // 等待網頁載入完成
+    document.addEventListener('DOMContentLoaded', function() {
+        // 獲取輪播圖元件
+        var myCarousel = document.querySelector('#mainCarousel');
+        
+        // 初始化輪播，設定每 3 秒自動切換一次 (3000 毫秒)
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 3000,
+            wrap: true
+        });
+    });
+    </script>
+</html>

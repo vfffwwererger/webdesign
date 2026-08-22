@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>javascripts demo</title>
+		
+
+	</head>
+	<body>
+		<h2>javascripts demo</h2>
+		<p id="p1">this is a HTML content1.</p>
+		<p id="p2">this is a HTML content2.</p>
+
+		<button onclick='document.getElementById("p1").innerHTML = "Hello JavaScript!"'>click me to change content1</button>
+		<button onclick='document.getElementById("p1").innerHTML = "this is a HTML content1."'>click me to recover content1</button>
+		<br><br>
+		<button onclick='document.getElementById("p2").innerHTML = "Hello!"'>click me to change content2</button>
+		<button onclick='document.getElementById("p2").innerHTML = "this is a HTML content2."'>click me to recover content2</button>
+		<br>
+		<hr>
+		<br>
+		<button onclick="document.write('this is a new page!!')">doucument.write</button>
+		<br>
+		<br>
+		<hr>
+		<button onclick="window.alert('alert message!!')">window.alert</button>
+		<br>
+		<br>
+		<hr>
+		<button onclick="alert('alert message!!')">alert a message</button>
+		<br>
+		<br>
+		<hr>
+		<button onclick="console.log('this is console log')">console.log</button>
+		<br>
+		<br>
+		<hr>
+		<img id="bul" src="imgs/pic_bulboff.gif" alt="">
+		<button onclick="document.getElementById('bul').src='imgs/pic_bulboff.gif'">turn off</button>
+
+		<button onclick="document.getElementById('bul').src='imgs/pic_bulbon.gif'">turn on</button>
+		<br>
+		<br>
+		<hr>
+		<p id="p3">this is a HTML content3.</p>
+		<button type="button" onclick="document.getElementById('p3').style.fontSize='35px'">Click Me!</button>
+		<button type="button" onclick="document.getElementById('p3').style.fontSize='16px'">Click Me recover fontsize!</button>
+		<br>
+		<br>
+		<hr>
+
+		<script>
+			function goodday(){
+				const hour = new Date().getHours(); 
+				let greeting;
+
+				if (hour < 18) {
+  					greeting = "Good day";
+				} else {
+  					greeting = "Good evening";
+				}
+				document.getElementById('p4').innerHTML=greeting			
+			}
+		</script>
+		<p id="p4">this is a HTML content4.</p>
+		<button onclick="goodday()">hello</button>
+		<br>
+		<br>
+		<hr>
+		<script>
+			function numberreset(){
+				let text="this is a HTML content5.";
+				document.getElementById('p5').innerHTML= text;
+			}
+			function numberloop(){
+				let text="";
+				for(i=0;i<=10;i++){
+					text += "The number is " + i + "<br>";
+				}
+				document.getElementById('p5').innerHTML= text;
+			}
+		</script>		
+
+		<p id="p5">this is a HTML content5.</p>
+		<button onclick="numberreset()">number reset</button>
+		<button onclick="numberloop()">number count</button>
+
+		<p><a href="index.htm">回首頁</a></p>	
+	</body>
+</html>
