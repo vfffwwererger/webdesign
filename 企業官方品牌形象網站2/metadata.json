@@ -1,0 +1,6 @@
+{
+  "name": "企業官方品牌形象網站",
+  "description": "基於 Bootstrap 5、HTML5 與 Vanilla JS 打造的高效響應式官方網站，涵蓋輪播首頁、卡片式服務項目、精選案例展示、聯絡我們與 Google 嵌入地圖。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

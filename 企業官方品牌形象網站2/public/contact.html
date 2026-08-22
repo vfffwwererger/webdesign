@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 | 創曜數位科技 - 台北大安區實體據點與線上諮詢</title>
+    <meta name="description" content="創曜數位科技位於中國文化大學大安分部（台北市大安區和平東路一段155號3~6樓），提供專業網頁設計與數位行銷諮詢。">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-layers-fill text-primary me-2 fs-4"></i>
+                <span class="fw-bold">創曜數位<span class="text-info">科技</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-building me-1"></i>關於我們</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html"><i class="bi bi-grid-fill me-1"></i>服務項目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cases.html"><i class="bi bi-briefcase-fill me-1"></i>精選案例</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html"><i class="bi bi-envelope-fill me-1"></i>聯絡我們</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary rounded-pill px-3 py-2 text-white fw-bold" href="contact.html">免費預約諮詢</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 標題橫幅 -->
+    <header class="bg-dark text-white py-5 mt-5 text-center position-relative" style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%);">
+        <div class="container py-4">
+            <span class="badge bg-primary px-3 py-2 rounded-pill mb-3">CONTACT US</span>
+            <h1 class="display-5 fw-bold mb-3">與我們的顧問團隊連繫</h1>
+            <p class="lead text-light mb-0 mx-auto" style="max-width: 700px;">歡迎蒞臨台北大安分部或填寫線上表單，我們將即刻為您服務。</p>
+        </div>
+    </header>
+
+    <!-- 聯絡內容 -->
+    <main class="container py-5">
+        <!-- 成功訊息提示 -->
+        <div id="formSuccessAlert" class="alert alert-success alert-dismissible fade show d-none shadow-sm mb-4" role="alert"></div>
+
+        <div class="row g-4">
+            <!-- 左側：諮詢表單 -->
+            <div class="col-lg-6">
+                <div class="contact-info-card">
+                    <h4 class="fw-bold mb-3 text-dark d-flex align-items-center">
+                        <i class="bi bi-chat-dots-fill text-primary me-2"></i>填寫專案需求諮詢
+                    </h4>
+                    <form id="mainContactForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="contactName" class="form-label fw-semibold">您的姓名 / 稱謂 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="contactName" placeholder="例如：李總監" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="contactPhone" class="form-label fw-semibold">聯絡電話 <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="contactPhone" placeholder="例如：0912-345-678" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="contactEmail" class="form-label fw-semibold">電子信箱 <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="yourname@company.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="contactServiceSelect" class="form-label fw-semibold">需求服務項目</label>
+                                <select class="form-select" id="contactServiceSelect">
+                                    <option value="響應式網頁設計 (RWD)">響應式網頁設計 (RWD)</option>
+                                    <option value="企業形象與官方網站" selected>企業形象與官方網站</option>
+                                    <option value="搜尋引擎優化與效能">搜尋引擎優化與效能 (SEO)</option>
+                                    <option value="電商購物與金流整合">電商購物與金流整合</option>
+                                    <option value="UI/UX 介面體驗設計">UI/UX 介面體驗設計</option>
+                                    <option value="網站維護與資安託管">網站維護與資安託管</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="contactMessage" class="form-label fw-semibold">專案需求簡述</label>
+                                <textarea class="form-control" id="contactMessage" rows="4" placeholder="請描述您的專案期望與時程..." required></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">送出諮詢申請</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 右側：地址與嵌入地圖 -->
+            <div class="col-lg-6">
+                <div class="contact-info-card">
+                    <h4 class="fw-bold mb-3 text-dark d-flex align-items-center">
+                        <i class="bi bi-pin-map-fill text-primary me-2"></i>公司據點與交通資訊
+                    </h4>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="bi bi-building"></i></div>
+                        <div>
+                            <div class="fw-bold text-dark">公司地址</div>
+                            <div class="text-secondary">
+                                <strong>中國文化大學大安分部</strong><br>
+                                106 臺北市大安區龍安里和平東路一段155號3~6樓
+                            </div>
+                            <small class="text-muted d-block mt-1">
+                                捷運科技大樓站 / 古亭站，近師大商圈。
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-6">
+                            <div class="contact-item mb-0">
+                                <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                                <div>
+                                    <div class="fw-bold text-dark">電話專線</div>
+                                    <a href="tel:0227005858" class="text-decoration-none text-primary fw-semibold">(02) 2700-5858</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="contact-item mb-0">
+                                <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                                <div>
+                                    <div class="fw-bold text-dark">電子信箱</div>
+                                    <a href="mailto:service@innodigital.tw" class="text-decoration-none text-primary fw-semibold">service@innodigital.tw</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 嵌入 Google 地圖 -->
+                    <div class="map-container mt-3">
+                        <iframe 
+                            title="公司地址地圖"
+                            src="https://maps.google.com/maps?q=%E4%B8%AD%E5%9C%8B%E6%96%87%E5%8C%96%E5%A4%A7%E5%AD%B8%E5%A4%A7%E5%AE%89%E5%88%86%E9%83%A8%20%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%92%8C%E5%B9%B3%E6%9D%B1%E8%B7%AF%E4%B8%80%E6%AE%B5155%E8%99%9F&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="footer-section pt-5 pb-4">
+        <div class="container text-center">
+            <p class="mb-2">創曜數位科技 InnoDigital Solutions | 台北市大安區和平東路一段155號3~6樓</p>
+            <small class="text-secondary">&copy; <span class="current-year">2026</span> 版權所有</small>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
