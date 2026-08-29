@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捷創科技 CO. | 引領未來的數位轉型方案</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>    
+    <!-- Google Fonts: Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --dark-bg: #1a1d23;
+            --footer-bg: #121418;
+            --text-muted: #6c757d;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar 樣式 */
+        .navbar {
+            background-color: rgba(26, 29, 35, 0.95);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+        .navbar-brand img { height: 30px; }
+        .nav-link { color: #fff !important; font-weight: 500; margin: 0 10px; }
+        .nav-link:hover { color: var(--primary-color) !important; }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero-badge {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px; color: #ccc; }
+
+        /* 通用標題 */
+        .section-tag { color: var(--primary-color); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 40px; position: relative; }
+
+/* 輪播圖基礎容器 */
+#heroCarousel {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* 輪播項目高度與遮罩 */
+.carousel-item {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* 加入深色遮罩效果 */
+    filter: brightness(0.5);
+}
+
+/* 內容置中對齊 */
+.hero-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 10;
+}
+
+/* 自定義輪播指示器 (底部的點) */
+.carousel-indicators [data-bs-target] {
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 0 5px;
+}
+
+/* 自定義左右箭頭圓圈 */
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+    opacity: 0.5;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 20px;
+    background-size: 50%;
+}
+        
+
+        /* 服務區塊卡片 */
+        .service-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card img { height: 200px; object-fit: cover; }
+        .card-category { font-size: 0.75rem; color: var(--primary-color); font-weight: 700; margin-bottom: 8px; }
+
+        /* 最新消息卡片 */
+        .news-card { border: none; background: transparent; }
+        .news-card img { border-radius: 8px; margin-bottom: 15px; height: 180px; object-fit: cover; }
+        .news-category { font-size: 0.75rem; color: var(--primary-color); margin-bottom: 5px; }
+        .news-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+        .news-excerpt { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+
+        /* 按鈕自定義 */
+        .btn-outline-primary-custom {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 5px 20px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+        .btn-outline-primary-custom:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: #999;
+            padding: 80px 0 20px;
+            font-size: 0.9rem;
+        }
+        .footer-logo { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; text-decoration: none; }
+        .footer-title { color: white; font-weight: 700; margin-bottom: 20px; }
+        .contact-info p { margin-bottom: 10px; display: flex; align-items: center; }
+        .contact-info i { margin-right: 10px; color: var(--primary-color); }
+        .social-icons a {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            background: #2a2e35;
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { background: var(--primary-color); }
+        .footer-bottom { border-top: 1px solid #2a2e35; padding-top: 20px; margin-top: 50px; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導航列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-cpu-fill me-2 text-primary"></i> 捷創科技 CO.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">服務項目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">最新消息</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">聯絡我們</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary px-4 py-2" href="#">預約諮詢</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Carousel Section -->
+<header id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <!-- 底部指示小點 -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- 輪播內容 -->
+    <div class="carousel-inner">
+        
+        <!-- 第一張：數位轉型 (原圖風格) -->
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000" alt="Digital Transformation">
+            <div class="hero-overlay-content container">
+                <div class="hero-badge">ENTERPRISE DIGITAL TRANSFORMATION</div>
+                <h1 class="hero-title">引領未來的數位轉型方案</h1>
+                <p class="hero-subtitle">提供最專業、最高效的企業級系統整合服務。我們運用雲端運算與 AI 技術，助您實現營收增長。</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#" class="btn btn-primary btn-lg px-4">免費體驗 14 天</a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4">瞭解解決方案</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二張：雲端服務 -->
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=2000" alt="Cloud Infrastructure">
+            <div class="hero-overlay-content container">
+                <div class="hero-badge">SECURE CLOUD ARCHITECTURE</div>
+                <h1 class="hero-title">高可用性的雲端架構整合</h1>
+                <p class="hero-subtitle">跨足 AWS、Azure 與 Google Cloud，為您的企業打造無縫銜接的混合雲環境，保障數據絕對安全。</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#" class="btn btn-primary btn-lg px-4">諮詢架構師</a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4">技術白皮書</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三張：AI 自動化 -->
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=2000" alt="AI Automation">
+            <div class="hero-overlay-content container">
+                <div class="hero-badge">ARTIFICIAL INTELLIGENCE</div>
+                <h1 class="hero-title">AI 驅動的自動化未來</h1>
+                <p class="hero-subtitle">透過深度學習優化營運流程，將繁瑣的作業自動化，讓您的團隊專注於最具價值的創新工作。</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#" class="btn btn-primary btn-lg px-4">立即導入 AI</a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4">查看案例</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 左右控制按鈕 -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</header>
+
+    <!-- 服務區塊 -->
+    <section class="py-5 my-5">
+        <div class="container text-center">
+            <div class="section-tag">OUR SERVICES</div>
+            <h2 class="section-title">我們的服務</h2>
+            <p class="text-muted mb-5">為企業量身定制的轉型科技服務，從基礎架構搭建到雲端AI整合，全方位加速業務創新與升級。</p>
+            
+            <div class="row g-4 text-start">
+                <!-- 服務 1 -->
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="Cloud">
+                        <div class="card-body p-4">
+                            <div class="card-category">CLOUD SERVICE</div>
+                            <h5 class="fw-bold">雲端運算與架構整合</h5>
+                            <p class="text-muted small">協助企業精確移轉至 AWS 與 Azure 混合雲，保障高可用性、極致安全與無與倫比的彈性擴展能力。</p>
+                            <a href="#" class="btn btn-outline-primary-custom mt-2">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 服務 2 -->
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600" alt="AI">
+                        <div class="card-body p-4">
+                            <div class="card-category">INTELLIGENCE</div>
+                            <h5 class="fw-bold">AI 數據分析與自動化</h5>
+                            <p class="text-muted small">利用機器學習模型輔助決策，透過自動化營運管理，減少人工作業時間達 70% 以上。</p>
+                            <a href="#" class="btn btn-outline-primary-custom mt-2">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 服務 3 -->
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Security">
+                        <div class="card-body p-4">
+                            <div class="card-category">SECURITY</div>
+                            <h5 class="fw-bold">資訊安全與風險合規</h5>
+                            <p class="text-muted small">提供多層次的企業安全防禦、滲透測試與合規性稽核，全天候守護您的珍貴商業數據資產。</p>
+                            <a href="#" class="btn btn-outline-primary-custom mt-2">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新消息區塊 -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <div class="section-tag">LATEST INSIGHTS</div>
+            <h2 class="section-title">最新消息</h2>
+            <p class="text-muted mb-5">追蹤行業最前沿動態與技術白皮書，看我們如何攜手行業領先各部部署落地。</p>
+
+            <div class="row g-4 text-start">
+                <!-- 消息 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400" class="w-100" alt="News">
+                        <div class="news-category">業界新聞</div>
+                        <h3 class="news-title">2026年全球雲端趨勢報告</h3>
+                        <p class="news-excerpt">多雲架構已成為大中型企業標配，未來混合雲將面臨更嚴峻的治理安全考驗。</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">閱讀全文</a>
+                    </div>
+                </div>
+                <!-- 消息 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="news-card">
+                        <img src="https://placehold.co/400x250/1a1d23/ffffff?text=JetCloud+v3.2"  class="w-100" alt="News">
+                        <div class="news-category">產品發佈</div>
+                        <h3 class="news-title">捷創雲 v3.2 版本正式上線</h3>
+                        <p class="news-excerpt">全新整合 AI 預測模型，可在事件發生前預警並自動執行流程自動化。</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">閱讀全文</a>
+                    </div>
+                </div>
+                <!-- 消息 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400" class="w-100" alt="News">
+                        <div class="news-category">成功案例</div>
+                        <h3 class="news-title">傳統物流巨頭轉型紀實</h3>
+                        <p class="news-excerpt">看我們如何幫助某跨國物流集團實現全球貨櫃智慧即時追蹤，降低20%營運成本。</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">閱讀全文</a>
+                    </div>
+                </div>
+                <!-- 消息 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=400" class="w-100" alt="News">
+                        <div class="news-category">網絡研討會</div>
+                        <h3 class="news-title">零信任資安實戰論壇研討會</h3>
+                        <p class="news-excerpt">即將於 4 月份線上研討會，與資安專家面對面探討多維防禦模型。</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">閱讀全文</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="#" class="footer-logo">
+                        <i class="bi bi-cpu-fill me-2 text-primary"></i> 捷創科技 CO.
+                    </a>
+                    <p class="pe-lg-5">捷創科技致力於提供卓越的數位轉型解決方案與系統整合服務。我們以敏捷、安全、創新的核心價值伴隨企業共同成長。</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="footer-title">聯絡我們</h5>
+                    <div class="contact-info">
+                        <p><i class="bi bi-telephone"></i> 電話: 02-1234-5678</p>
+                        <p><i class="bi bi-envelope"></i> Email: info@example.com</p>
+                        <p><i class="bi bi-geo-alt"></i> 地址: 台北市信義區信義路五段7號</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">社群關注</h5>
+                    <p>追蹤我們的社群平台，獲取最新資訊與技術通知。</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between">
+                <p>&copy; 2024 捷創科技股份有限公司. All Rights Reserved. 版權所有</p>
+                <div class="footer-links">
+                    <a href="#" class="text-decoration-none text-muted me-3">隱私權政策</a>
+                    <a href="#" class="text-decoration-none text-muted">服務條款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 原生 JavaScript 處理導航列滾動變色效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.padding = '1rem 0';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
