@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <!-- 2. 引入 Font Awesome 本地端 CSS (取代原本的 Bootstrap Icons) -->
+    <link rel="stylesheet" href="css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2>HTML</h2>
+<form action="/action_page.php">
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formnovalidate="formnovalidate" value="Submit without validation">
+</form>
+
+<form action="/action_page.php" novalidate>
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+      <h2>Bootstrap</h2>
+      <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword">
+        </div>
+      </div>
+
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+      <label class="form-check-label" for="switchCheckDefault">Default switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+      <label class="form-check-label" for="switchCheckChecked">Checked switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDisabled" disabled>
+      <label class="form-check-label" for="switchCheckDisabled">Disabled switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckCheckedDisabled" checked disabled>
+      <label class="form-check-label" for="switchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+    </div>  
+
+
+<h2 class="mt-5">Validation</h2>
+<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Phone number</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend"><i class="fa-solid fa-phone"></i></span>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="^09\d{8}$" required>
+      <div class="invalid-feedback">
+        Please provide a phone number (09xxxxxxxx).
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+
+<div class="input-group my-3">
+  <span class="input-group-text">輸入密碼</span>
+  <input type="password" class="form-control form-control-lg" id="password-input">
+  <button class="btn btn-outline-secondary" type="button" id="toggle-password">
+    <i class="fa-solid fa-eye" id="eye-icon"></i>
+  </button>
+</div>
+
+<script>
+  const passwordInput = document.getElementById('password-input');
+const togglePasswordButton = document.getElementById('toggle-password');
+const eyeIcon = document.getElementById('eye-icon');
+
+togglePasswordButton.addEventListener('click', function () {
+    // 檢查目前 input 的類型
+    if (passwordInput.type === 'password') {
+        // 切換為顯示明文
+        passwordInput.type = 'text';
+        // 更換圖示為「眼睛斜線」(eye-slash)
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        // 切換回隱藏密碼
+        passwordInput.type = 'password';
+        // 更換圖示回「眼睛」(eye)
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+});
+</script>
+
+<div class="my-3 position-relative">
+  <label for="myTextarea" class="form-label">範例文字區域</label>
+  <textarea 
+    id="myTextarea" 
+    class="form-control" 
+    rows="5" 
+    maxlength="200" 
+    placeholder="請輸入文字..."></textarea>
+  
+  <!-- 右下角計數器 -->
+  <div class="text-muted small position-absolute" style="right: 10px; bottom: 10px;">
+    剩餘 <span id="charCount">200</span> 字
+  </div>
+</div>
+
+ <script>
+  const textarea = document.getElementById('myTextarea');
+  const charCountSpan = document.getElementById('charCount');
+  const maxChars = 200;
+
+  textarea.addEventListener('input', function () {
+    // 計算剩餘字數
+    const remaining = maxChars - textarea.value.length;
+    
+    // 更新顯示的數字
+    charCountSpan.textContent = remaining;
+
+    // (選配) 當字數快滿時改變顏色
+    if (remaining <= 20) {
+      charCountSpan.style.color = 'red';
+    } else {
+      charCountSpan.style.color = '#6c757d';
+    }
+  });
+  </script>
+
+<div class="container mt-4">
+  <label class="form-label">使用者清單</label>
+  
+  <!-- 這裡是用來放動態產生的輸入框容器 -->
+  <div id="user-list-container">
+    <!-- 預設可以先放一排，或者空白 -->
+  </div>
+
+  <!-- 增加按鈕 -->
+  <button class="btn btn-outline-primary w-100" type="button" id="add-user-btn">
+    <i class="fa-solid fa-plus"></i> 增加使用者
+  </button>
+</div>
+
+<script>
+  // 抓取容器與增加按鈕
+const userListContainer = document.getElementById('user-list-container');
+const addUserBtn = document.getElementById('add-user-btn');
+
+// 定義一個函式來「新增一排」
+function addUserRow() {
+    // 建立一個新的 div 容器
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'input-group mb-2'; // Bootstrap 樣式
+
+    // 設定內部的 HTML 結構
+    rowDiv.innerHTML = `
+        <span class="input-group-text">使用者</span>
+        <input type="text" class="form-control" placeholder="請輸入資料">
+        <button class="btn btn-outline-danger delete-btn" type="button">
+            <i class="fa-solid fa-trash"></i> 刪除
+        </button>
+    `;
+
+    // 為裡面的「刪除按鈕」綁定點擊事件
+    const deleteBtn = rowDiv.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', function() {
+        rowDiv.remove(); // 點擊後把自己這一排刪除
+    });
+
+    // 將整排加入到主容器中
+    userListContainer.appendChild(rowDiv);
+}
+
+// 監聽「增加按鈕」點擊
+addUserBtn.addEventListener('click', addUserRow);
+
+// (選配) 頁面載入時先自動產生第一排
+addUserRow();
+</script>
+
+  </body>
+</html>
