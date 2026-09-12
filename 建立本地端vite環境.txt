@@ -8,3 +8,4 @@
 5.進入終端機後，輸入npm install
 6.再輸入npm run dev
 7.就會出現本地端連結
+
