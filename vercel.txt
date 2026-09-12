@@ -1,0 +1,28 @@
+vercel
+
+方法一：透過 GitHub 連動（最推薦，日後每次修改會自動部署）
+將專案放上 GitHub：
+如果您是從 Google AI Studio 右上角選單使用 「Export to GitHub」，專案就已經在您的 GitHub 帳號中了。
+如果是在本機電腦，將程式碼 push 到您自己的 GitHub Repository。
+在 Vercel 匯入專案：
+前往 Vercel 官網 (https://vercel.com/) 登入（可直接使用 GitHub 帳號一鍵登入）。
+點擊右上角 「Add New...」 ➜ 選擇 「Project」。
+在列表裡找到剛才的 GitHub 專案，點擊 「Import」。
+
+1.產生網址：https://quotation-system-one-dun.vercel.app/
+
+2.去vercel設定資料庫neon(免費的)
+project選擇剛剛上傳的網站，在側邊介面找到storage，
+按create資料庫，選neon
+選最近的地點新加坡
+輸入資料庫的名字
+
+3.去ai studio下提示詞prompt
+整合資料庫和剛剛製作的報價系統
+：建立網路端vite環境，使用vercel加上neon，並實作資料庫，整合原有網頁
+
+去剛剛建立好的neon，找到.env.local，把右側隱隱藏眼睛打開
+# Recommended for most uses
+DATABASE_URL=
+
+postgresql://neondb_owner:npg_NazUFhHA8D3e@ep-wild-pond-b3w74efi-pooler.c-4.ap-southeast-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
